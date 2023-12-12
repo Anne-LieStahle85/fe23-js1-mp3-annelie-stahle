@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"/>
+    <script src="./script.js" defer></script>
+    <title>Miniprojekt 3</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Search by countries</h1>
+
+        <form>
+            <input type="text" id="countryInput" placeholder="Enter a country:">
+            <input type="radio" name="search-type" id="radio-name" value="name" checked>
+            <label for="radio-name">Name</label>
+            <input type="radio" name="search-type" id="radio-lang" value="lang">
+            <label for="radio-lang">Language</label>
+            <button class="btn">Search</button>
+        </form>
+
+        <div id="countryInfo"></div>
+
+    </div>
+    
+</body>
+</html>
