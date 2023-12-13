@@ -8,6 +8,7 @@ form.addEventListener("submit", (event) => {
   form.reset();
 });
 
+// hämtar och visar info om länder,enligt sökning. Error hantering.
 async function getCountriesByChoice() {
   const path = document.querySelector(":checked").value;
   const userChoice = document.querySelector("input").value;
@@ -28,15 +29,16 @@ async function getCountriesByChoice() {
       data.forEach( createCountryDiv );
     } else if (response.status === 404) {
       console.log(404);
-      containerDiv.innerHTML = "<p>No picture was found</p>";
+      containerDiv.innerHTML = "<p>No country was found, try again.</p>";
     } else {
-      containerDiv.innerHTML = "<p>Something went wrong, try again.";
+      containerDiv.innerHTML = "<p>Something went wrong, try again later.";
     }
   } catch (error) {
     displayError(error);
   }
 }
 
+//skapar och appendar DOM för ett land
 function createCountryDiv(countryData) {
   const containerDiv = document.querySelector("#countryInfo");
   const newDiv = document.createElement("div");
@@ -46,7 +48,7 @@ function createCountryDiv(countryData) {
   flagImg.src = countryData.flags.png;
 
   const countryName = document.createElement("h2");
-  countryName.innerText = countryData.name.common;
+  countryName.innerText = countryData.name.official;
 
   const capitalInfo = document.createElement("p");
   capitalInfo.innerText = `Capital: ${countryData.capital}`;
@@ -62,6 +64,7 @@ function createCountryDiv(countryData) {
   containerDiv.appendChild(newDiv);
 }
 
+//visar felmeddelande
 function displayError(error) {
   console.error("Error", error);
   const containerDiv = document.querySelector("#countryInfo");

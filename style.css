@@ -34,11 +34,6 @@ form {
   box-sizing: border-box;
 }
 
-/* #countryInfo img{
-    width: 100%;
-    border-bottom: solid black 2px
-}  */
-
 @media (min-width: 1024px) {
   #countryInfo {
     display: grid;
